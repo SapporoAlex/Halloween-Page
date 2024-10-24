@@ -41,8 +41,16 @@ footer {
     flex-direction: row;
     justify-content: center;
     height: 100px;
-    width: 100vw;
+    width: 100%;
     
+}
+
+iframe, video {
+    width: 60%;
+    height: auto; /* This ensures the height adjusts according to the width */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    max-width: 100%; /* Ensures it doesn’t exceed the container */
+    display: flex;
 }
   
 .animated-h1 {

@@ -1,7 +1,7 @@
 # Halloween Event Page
 This is an educational resource aimed at K-7 ESL students.
 
-<a href="https://sapporoalex.github.io/Halloween-Page/"><p>Link to page</p></a>
+<p><a href="https://sapporoalex.github.io/Halloween-Page/">Link to page</a></p>
 
 ## Features
 - Hidden nav-bar

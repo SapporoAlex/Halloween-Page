@@ -1,3 +1,40 @@
+const audioFiles = {
+    1: new Audio('static/audio/1 cat.mp3'),
+    2: new Audio('static/audio/2 bat.mp3'),
+    3: new Audio('static/audio/3 giant.mp3'),
+    4: new Audio('static/audio/4 snake.mp3'),
+    5: new Audio('static/audio/5 vampire.mp3'),
+    6: new Audio('static/audio/6 duck.mp3'),
+    7: new Audio('static/audio/7 werewolf.mp3'),
+    8: new Audio('static/audio/8 witch.mp3'),
+    9: new Audio('static/audio/9 zombie.mp3')
+};
+
+// Preload the audio files by loading them
+Object.values(audioFiles).forEach(audio => audio.load());
+
+// Handle play sound button click
+document.querySelectorAll('.play-sound').forEach(button => {
+    button.addEventListener('click', () => {
+        const soundId = button.getAttribute('data-sound');
+        if (audioFiles[soundId]) {
+            audioFiles[soundId].currentTime = 0; // Reset the audio to the beginning
+            audioFiles[soundId].play();
+        }
+    });
+});
+
+// Handle stop sound button click
+document.querySelectorAll('.stop-sound').forEach(button => {
+    button.addEventListener('click', () => {
+        const soundId = button.getAttribute('data-sound');
+        if (audioFiles[soundId]) {
+            audioFiles[soundId].pause();
+            audioFiles[soundId].currentTime = 0; // Reset the audio to the beginning
+        }
+    });
+});
+
 document.querySelectorAll('.clickable-image').forEach(image => {
     image.addEventListener('click', function() {
         const overlay = this.nextElementSibling;
@@ -22,37 +59,6 @@ document.querySelectorAll('.cover-image').forEach(image => {
     });
 });
 
-
-document.querySelectorAll('.play-sound').forEach(button => {
-    let audio = null;
-
-    button.addEventListener('click', function() {
-        const audioSrc = this.getAttribute('data-sound');
-
-        // Create or update the audio instance
-        if (!audio || audio.src !== audioSrc) {
-            audio = new Audio(audioSrc);
-        }
-
-        // Play or pause the audio
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-            audio.currentTime = 0; // Reset to the beginning
-        }
-    });
-
-    // Get the sibling stop button
-    const stopButton = button.nextElementSibling;
-
-    stopButton.addEventListener('click', function() {
-        if (audio) {
-            audio.pause();
-            audio.currentTime = 0; // Reset to the beginning
-        }
-    });
-});
 
 document.addEventListener('mousemove', (event) => {
     const navColumn = document.getElementById('nav-column');

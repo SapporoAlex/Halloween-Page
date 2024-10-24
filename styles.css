@@ -129,7 +129,12 @@ h1 {
 }
 
 #credits {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-contents: center;
+    align-items: center;
+    color: 'gold';
+    font-size: 12px;
 }
 
 
